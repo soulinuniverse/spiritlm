@@ -191,7 +191,7 @@ class Spiritlm:
         for gen_input in generation_inputs:
             if gen_input.content_type.value == ContentType.SPEECH.value:
                 gen_input.content = convert_to_wav_tensor(gen_input.content)
-                if prev_modality != "a":
+                if prev_modality != "s":
                     prompts.append(Spiritlm.SPEECH_PROMPT_PREFIX)
                 prompts.append(self.speech_tokenizer(gen_input.content))
                 prev_modality = "s"  # speech
